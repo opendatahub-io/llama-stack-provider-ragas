@@ -1,5 +1,5 @@
 # Edited from the KFP generated Dockerfile.
-FROM python:3.12
+FROM registry.access.redhat.com/ubi9/python-312:latest
 
 WORKDIR /usr/local/src/kfp/components
 
