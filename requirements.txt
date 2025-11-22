@@ -1798,9 +1798,9 @@ pyyaml==6.0.2 \
     #   langchain-community
     #   langchain-core
     #   pyaml
-ragas==0.3.0 \
-    --hash=sha256:9e7bdbcf79c939d695ec10dbb7d587971f489145e0f18d33f40df085116c1c79 \
-    --hash=sha256:d45f174c665a544b5749d3b2034a207d79ff001fe57fc81f0cd425004b4906a2
+ragas==0.3.9 \
+    --hash=sha256:1be77af14c7101f26125cc025ff1026f49e2d564162471ae590c3d832527f9c5 \
+    --hash=sha256:7807cfc3f01c0297ef99ab3e6a5f53e7cac0a73267d273273b17871437c55786
     # via llama-stack-provider-ragas (pyproject.toml)
 referencing==0.36.2 \
     --hash=sha256:df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa \
