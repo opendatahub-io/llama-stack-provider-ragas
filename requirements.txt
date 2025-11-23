@@ -805,9 +805,9 @@ langchain-core==0.3.76 \
     #   langchain-openai
     #   langchain-text-splitters
     #   ragas
-langchain-openai==0.3.33 \
-    --hash=sha256:2d52aab6d2af61da9bb9470616ce782128f4be59df965caee3dece30ae6b2bc4 \
-    --hash=sha256:2dec058332ea9e8977cd91df6515b95952e187ac7484f349c3fe91d936a92375
+langchain-openai==1.0.3 \
+    --hash=sha256:18d254dbe946d9e9fe6d31416c60c8fc06513427f6e8d8c372e015345e1e17f6 \
+    --hash=sha256:e9df56540c1118002ab5306208c4845715e9209779c8a7ac9037eded98435fdc
     # via ragas
 langchain-text-splitters==0.3.11 \
     --hash=sha256:7a50a04ada9a133bbabb80731df7f6ddac51bc9f1b9cab7fa09304d71d38a6cc \
