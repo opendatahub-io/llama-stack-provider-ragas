@@ -3,10 +3,10 @@ from datetime import datetime
 
 import pytest
 from dotenv import load_dotenv
-from llama_stack.apis.inference import SamplingParams, TopPSamplingStrategy
 from llama_stack_client import LlamaStackClient
 from ragas import EvaluationDataset
 
+from llama_stack_provider_ragas.compat import SamplingParams, TopPSamplingStrategy
 from llama_stack_provider_ragas.config import (
     KubeflowConfig,
     RagasProviderInlineConfig,
@@ -35,7 +35,7 @@ def model():
 
 @pytest.fixture
 def embedding_model():
-    return "all-MiniLM-L6-v2"
+    return "ollama/all-minilm:latest"
 
 
 @pytest.fixture
