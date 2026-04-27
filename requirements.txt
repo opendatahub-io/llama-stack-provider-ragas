@@ -417,9 +417,9 @@ dataclasses-json==0.6.7 \
     --hash=sha256:0dbf33f26c8d5305befd61b39d2b3414e8a407bedc2834dea9b8d642666fb40a \
     --hash=sha256:b6b3e528266ea45b9535223bc53ca645f5208833c29229e847b3f26a1cc55fc0
     # via langchain-community
-datasets==4.2.0 \
-    --hash=sha256:8333a7db9f3bb8044c1b819a35d4e3e2809596c837793b0921382efffdc36e78 \
-    --hash=sha256:fdc43aaf4a73b31f64f80f72f195ab413a1141ed15555d675b2fd17926f8b026
+datasets==4.8.5 \
+    --hash=sha256:0f0c1c3d56ffff2c93b2f4c63c95bac94f3d7e8621aea2a2a576275233bba772 \
+    --hash=sha256:5079900781719c0e063a8efdd2cd95a31ad0c63209178669cd23cf1b926149ff
     # via
     #   llama-stack-provider-ragas (pyproject.toml)
     #   ragas
