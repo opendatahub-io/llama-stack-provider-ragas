@@ -828,9 +828,9 @@ llama-stack-client==0.2.23 \
     --hash=sha256:68f34e8ac8eea6a73ed9d4977d849992b2d8bd835804d770a11843431cd5bf74 \
     --hash=sha256:eee42c74eee8f218f9455e5a06d5d4be43f8a8c82a7937ef51ce367f916df847
     # via llama-stack
-markdown-it-py==4.0.0 \
-    --hash=sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147 \
-    --hash=sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3
+markdown-it-py==4.2.0 \
+    --hash=sha256:04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49 \
+    --hash=sha256:9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a
     # via rich
 markupsafe==3.0.2 \
     --hash=sha256:0bff5e0ae4ef2e1ae4fdf2dfd5b76c75e5c2fa4132d05fc1b0dabcd20c7e28c4 \
