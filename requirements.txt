@@ -786,9 +786,9 @@ jsonschema-specifications==2025.9.1 \
     --hash=sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe \
     --hash=sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d
     # via jsonschema
-langchain==0.3.27 \
-    --hash=sha256:7b20c4f338826acb148d885b20a73a16e410ede9ee4f19bb02011852d5f98798 \
-    --hash=sha256:aa6f1e6274ff055d0fd36254176770f356ed0a8994297d1df47df341953cec62
+langchain==0.3.30 \
+    --hash=sha256:06599ec90fb550e0118b0ceab737667d2c0891fcc62ffce2058d21c945844448 \
+    --hash=sha256:37e6fcce92faf70cc7bac23739d13d6c3b9a3282da4dbcc06cb7e78330ed406a
     # via
     #   langchain-community
     #   ragas
