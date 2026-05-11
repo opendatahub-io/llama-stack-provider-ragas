@@ -1,78 +1,34 @@
 import os
-from datetime import datetime
 
 import pytest
-from dotenv import load_dotenv
-from llama_stack_client import LlamaStackClient
 from ragas import EvaluationDataset
 
-from llama_stack_provider_ragas.compat import SamplingParams, TopPSamplingStrategy
-from llama_stack_provider_ragas.config import (
-    KubeflowConfig,
-    RagasProviderInlineConfig,
-    RagasProviderRemoteConfig,
-)
 
-load_dotenv()
-
-
-@pytest.fixture
-def unique_timestamp():
-    return datetime.now().strftime("%Y%m%d_%H%M%S")
-
-
-@pytest.fixture
-def lls_client():
-    return LlamaStackClient(
-        base_url=os.environ.get("KUBEFLOW_LLAMA_STACK_URL", "http://localhost:8321")
+def pytest_addoption(parser):
+    parser.addoption(
+        "--no-mock-inference",
+        action="store_true",
+        help="Don't mock LLM inference (embeddings and completions)",
+    )
+    parser.addoption(
+        "--no-mock-client",
+        action="store_true",
+        help="Don't mock the LlamaStackClient; use a real server for wrapper tests",
     )
 
 
-@pytest.fixture
-def model():
-    return "ollama/granite3.3:2b"  # TODO : read from env
+@pytest.fixture(scope="session")
+def llama_stack_base_url():
+    return os.getenv("LLAMA_STACK_BASE_URL", "http://localhost:8321")
 
 
 @pytest.fixture
-def embedding_model():
-    return "ollama/all-minilm:latest"
+def embedding_dimension():
+    """Embedding dimension used for testing."""
+    return 384
 
 
-@pytest.fixture
-def sampling_params():
-    return SamplingParams(
-        strategy=TopPSamplingStrategy(temperature=0.1, top_p=0.95),
-        max_tokens=100,
-        stop=None,
-    )
-
-
-@pytest.fixture
-def inline_eval_config(embedding_model):
-    return RagasProviderInlineConfig(embedding_model=embedding_model)
-
-
-@pytest.fixture
-def kubeflow_config():
-    return KubeflowConfig(
-        pipelines_endpoint=os.environ["KUBEFLOW_PIPELINES_ENDPOINT"],
-        namespace=os.environ["KUBEFLOW_NAMESPACE"],
-        llama_stack_url=os.environ["KUBEFLOW_LLAMA_STACK_URL"],
-        base_image=os.environ["KUBEFLOW_BASE_IMAGE"],
-        results_s3_prefix=os.environ["KUBEFLOW_RESULTS_S3_PREFIX"],
-        s3_credentials_secret_name=os.environ["KUBEFLOW_S3_CREDENTIALS_SECRET_NAME"],
-    )
-
-
-@pytest.fixture
-def remote_eval_config(embedding_model, kubeflow_config):
-    return RagasProviderRemoteConfig(
-        embedding_model=embedding_model,
-        kubeflow_config=kubeflow_config,
-    )
-
-
-@pytest.fixture
+@pytest.fixture(scope="session")
 def raw_evaluation_data():
     """Sample data for Ragas evaluation."""
     return [
@@ -107,3 +63,58 @@ def raw_evaluation_data():
 def evaluation_dataset(raw_evaluation_data):
     """Create EvaluationDataset from sample data."""
     return EvaluationDataset.from_list(raw_evaluation_data)
+
+
+@pytest.fixture(scope="session")
+def dataset_id():
+    return "ragas_test_dataset"
+
+
+@pytest.fixture(scope="session")
+def inline_benchmark_id():
+    return "hf-doc-qa-ragas-inline-benchmark"
+
+
+@pytest.fixture(scope="session")
+def remote_benchmark_id():
+    return "hf-doc-qa-ragas-remote-benchmark"
+
+
+@pytest.fixture
+def register_dataset(client, raw_evaluation_data, dataset_id):
+    """Register the evaluation dataset with inline rows."""
+    client.beta.datasets.register(
+        dataset_id=dataset_id,
+        purpose="eval/messages-answer",
+        source={"type": "rows", "rows": raw_evaluation_data},
+    )
+    yield
+    try:
+        client.beta.datasets.unregister(dataset_id=dataset_id)
+    except Exception:
+        pass
+
+
+@pytest.fixture
+def register_benchmarks(
+    client, register_dataset, dataset_id, inline_benchmark_id, remote_benchmark_id
+):
+    """Register evaluation benchmarks for inline and remote providers."""
+    client.alpha.benchmarks.register(
+        benchmark_id=inline_benchmark_id,
+        dataset_id=dataset_id,
+        scoring_functions=["answer_similarity", "nv_accuracy"],
+        provider_id="trustyai_ragas_inline",
+    )
+    client.alpha.benchmarks.register(
+        benchmark_id=remote_benchmark_id,
+        dataset_id=dataset_id,
+        scoring_functions=["answer_similarity", "nv_accuracy"],
+        provider_id="trustyai_ragas_remote",
+    )
+    yield
+    for bid in (inline_benchmark_id, remote_benchmark_id):
+        try:
+            client.alpha.benchmarks.unregister(benchmark_id=bid)
+        except Exception:
+            pass

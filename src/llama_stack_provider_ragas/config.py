@@ -43,7 +43,7 @@ class RagasProviderBaseConfig(BaseModel):
     # Looking for the dataset?
     # It's in the benchmark config's dataset_id.
     # You set it as part of the call to `client.benchmarks.register` and
-    # `client.datasets.register`.
+    # `client.beta.datasets.register`.
 
     # Looking for the metrics?
     # They're in the benchmark config's scoring_functions.
@@ -83,6 +83,31 @@ class KubeflowConfig(BaseModel):
     results_s3_prefix: str = Field(
         description="S3 prefix (folder) where the evaluation results will be written.",
     )
+
+    results_s3_endpoint: str = Field(
+        description=(
+            "S3-compatible endpoint for results storage (e.g. AWS S3, MinIO). "
+        ),
+        default="https://s3.us-east-1.amazonaws.com",
+    )
+
+    results_s3_path_style: bool = Field(
+        description=(
+            "Whether to use path-style addressing for the results S3 endpoint. "
+            "Set this to True for MinIO and other S3-compatible providers that "
+            "require path-style addressing."
+        ),
+        default=False,
+    )
+
+    @property
+    def results_s3_storage_options(self) -> dict[str, object]:
+        storage_options: dict[str, object] = {
+            "client_kwargs": {"endpoint_url": self.results_s3_endpoint},
+        }
+        if self.results_s3_path_style:
+            storage_options["config_kwargs"] = {"s3": {"addressing_style": "path"}}
+        return storage_options
 
     s3_credentials_secret_name: str = Field(
         description=(
