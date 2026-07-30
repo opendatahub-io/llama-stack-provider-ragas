@@ -820,9 +820,9 @@ langsmith==0.4.27 \
     #   langchain
     #   langchain-community
     #   langchain-core
-llama-stack==0.2.23 \
-    --hash=sha256:43be14d97ca2fff77ca1e42241acb7945a67b7d183e9938bdb7159ee9610982a \
-    --hash=sha256:464d29c1ae3989fce2226513c9c18648f6236cbf5a399d3cf3a6b3dc4435be8c
+llama-stack==0.7.3 \
+    --hash=sha256:5b1f04ec6758c88ab308cee1683bf6e2429aefc151cabd94fb05cc3a1d6ced63 \
+    --hash=sha256:c7b3e07a6f45a5db0a7d8779c5008b347db5b1b33fce71078e8904590bf71263
     # via llama-stack-provider-ragas (pyproject.toml)
 llama-stack-client==0.2.23 \
     --hash=sha256:68f34e8ac8eea6a73ed9d4977d849992b2d8bd835804d770a11843431cd5bf74 \
