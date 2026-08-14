@@ -26,7 +26,7 @@ keywords = ["llama-stack", "ragas", "evaluation"]
 dependencies = [
     "setuptools-scm",
     "llama-stack>=0.2.23",
-    "greenlet==3.2.4", # inline/files/localfs errors saying greenlet not found
+    "greenlet==3.5.5", # inline/files/localfs errors saying greenlet not found
     "ragas==0.3.0",
     "pandas<2.3.0",
     "pyarrow>=21.0.0",
