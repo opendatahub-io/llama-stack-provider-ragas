@@ -573,9 +573,9 @@ fsspec==2025.9.0 \
     # via
     #   datasets
     #   huggingface-hub
-googleapis-common-protos==1.70.0 \
-    --hash=sha256:0e1b44e0ea153e6594f9f394fef15193a68aaaea2d843f83e2742717ca753257 \
-    --hash=sha256:b8bfcca8c25a2bb253e0e0b0adaf8c00773e5e6af6fd92397576680b807e0fd8
+googleapis-common-protos==1.75.2 \
+    --hash=sha256:6b83302f554ea93a0f48409c7fc2050f954bcbcddb7e3a9c76d4a823cb22920e \
+    --hash=sha256:8829a3d1e4508c5b7b9a6b9525f7fccff611f8531644579a76466c29295d4bb2
     # via opentelemetry-exporter-otlp-proto-http
 greenlet==3.2.4 \
     --hash=sha256:00fadb3fedccc447f517ee0d3fd8fe49eae949e1cd0f6a611818f4f6fb7dc83b \
