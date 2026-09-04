@@ -447,9 +447,9 @@ fastapi==0.116.1 \
     --hash=sha256:c46ac7c312df840f0c9e220f7964bada936781bc4e2e6eb71f1c4d7553786565 \
     --hash=sha256:ed52cbf946abfd70c5a0dccb24673f0670deeb517a88b3544d03c2a6bf283143
     # via llama-stack
-filelock==3.19.1 \
-    --hash=sha256:66eda1888b0171c998b35be2bcc0f6d75c388a7ce20c3f3f37aa8e96c2dddf58 \
-    --hash=sha256:d38e30481def20772f5baf097c122c3babc4fcdb7e14e57049eb9d88c6dc017d
+filelock==3.32.5 \
+    --hash=sha256:142cd9fa77a872c5e78c62329a0d15278fadc686eb89e760017968961a4fd6b2 \
+    --hash=sha256:f6a6a28f743f9b95ce19db5abe0f376f75eb56517dff21e1a4751e2657d3e83d
     # via
     #   datasets
     #   huggingface-hub
