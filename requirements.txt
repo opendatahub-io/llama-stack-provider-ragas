@@ -1123,9 +1123,9 @@ numpy==2.3.3 \
     #   langchain-community
     #   pandas
     #   ragas
-openai==1.107.1 \
-    --hash=sha256:168f9885b1b70d13ada0868a0d0adfd538c16a02f7fd9fe063851a2c9a025e72 \
-    --hash=sha256:7c51b6b8adadfcf5cada08a613423575258b180af5ad4bc2954b36ebc0d3ad48
+openai==3.19.0 \
+    --hash=sha256:890174cae80a47357035477532b6eabbc3d31220f021896dcc2640943e87b78d \
+    --hash=sha256:eaa59585332e54abf71c8011d9bfdb3b4aecead73a0aad977e979756756d42df
     # via
     #   langchain-openai
     #   llama-stack
