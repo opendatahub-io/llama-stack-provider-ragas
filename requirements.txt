@@ -669,9 +669,9 @@ httpx-sse==0.4.1 \
     --hash=sha256:8f44d34414bc7b21bf3602713005c5df4917884f76072479b21f68befa4ea26e \
     --hash=sha256:cba42174344c3a5b06f255ce65b350880f962d99ead85e776f23c6618a377a37
     # via langchain-community
-huggingface-hub==0.34.4 \
-    --hash=sha256:9b365d781739c93ff90c359844221beef048403f1bc1f1c123c191257c3c890a \
-    --hash=sha256:a4228daa6fb001be3f4f4bdaf9a0db00e1739235702848df00885c9b5742c85c
+huggingface-hub==2.1.1 \
+    --hash=sha256:c56285bb7047ff1fe510f23be0705934fb3fd43afda75543341e6574a7e79630 \
+    --hash=sha256:d76fa1d8e6a59e01f012b1d88da604c099c7a0f2e26b1cc7d708f0a4283bd2a2
     # via
     #   datasets
     #   llama-stack
