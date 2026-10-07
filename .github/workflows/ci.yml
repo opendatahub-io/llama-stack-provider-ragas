@@ -33,7 +33,7 @@ jobs:
         version: ${{ env.UV_VERSION }}
 
     - name: Cache uv dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: |
           ~/.cache/uv
