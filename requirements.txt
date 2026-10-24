@@ -443,9 +443,9 @@ ecdsa==0.19.1 \
     --hash=sha256:30638e27cf77b7e15c4c4cc1973720149e1033827cfd00661ca5c8cc0cdb24c3 \
     --hash=sha256:478cba7b62555866fcb3bb3fe985e06decbdb68ef55713c4e5ab98c57d508e61
     # via python-jose
-fastapi==0.116.1 \
-    --hash=sha256:c46ac7c312df840f0c9e220f7964bada936781bc4e2e6eb71f1c4d7553786565 \
-    --hash=sha256:ed52cbf946abfd70c5a0dccb24673f0670deeb517a88b3544d03c2a6bf283143
+fastapi==0.156.4 \
+    --hash=sha256:a09d29fdd6635e94ae00199bae331a04350e0e46ba4334d50809007cd3119db5 \
+    --hash=sha256:e7dd3889a6d6f0c2976a89d6fb34be92fb3ee77bb5f9d1a40e68e9af09c96968
     # via llama-stack
 filelock==3.19.1 \
     --hash=sha256:66eda1888b0171c998b35be2bcc0f6d75c388a7ce20c3f3f37aa8e96c2dddf58 \
