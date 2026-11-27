@@ -1246,9 +1246,9 @@ orjson==3.11.3 \
     --hash=sha256:fd7ff459fb393358d3a155d25b275c60b07a2c83dcd7ea962b1923f5a1134569 \
     --hash=sha256:ff94112e0098470b665cb0ed06efb187154b63649403b8d5e9aedeb482b4548c
     # via langsmith
-packaging==25.0 \
-    --hash=sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484 \
-    --hash=sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f
+packaging==26.4 \
+    --hash=sha256:81383611a09c1bc0b08b76e0fd5829d7c6824c65b27a6aee339da133f4233ea2 \
+    --hash=sha256:c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a
     # via
     #   datasets
     #   huggingface-hub
